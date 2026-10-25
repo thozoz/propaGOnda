@@ -100,17 +100,28 @@ export default {
           const dateStr = payload.date || now.toISOString().split("T")[0];
           const target = payload.target || "all";
           const targetName = payload.target_name || (target.charAt(0).toUpperCase() + target.slice(1));
-          const decreeNumber = payload.decree_number || (currentTruths.length + 101);
+
+          // Strict sequential decree numbering
+          let nextDecreeNumber = 101;
+          if (currentTruths.length > 0 && currentTruths[0].decree_number) {
+            nextDecreeNumber = currentTruths[0].decree_number + 1;
+          } else {
+            nextDecreeNumber = currentTruths.length + 101;
+          }
+
+          // Clean title to always match exact decree number
+          let cleanTitle = (payload.title || "Daily Truth").replace(/^Decree\s*#?[\d,]*[:\s-]*/i, "").trim();
+          cleanTitle = `Decree #${nextDecreeNumber}: ${cleanTitle}`;
 
           const newTruth = {
             id: payload.id || String(Date.now()),
-            slug: payload.slug || `decree-${decreeNumber}`,
-            title: payload.title || `Decree #${decreeNumber}: Daily Truth`,
+            slug: payload.slug || `decree-${nextDecreeNumber}`,
+            title: cleanTitle,
             quote: payload.quote.trim(),
             target: target.toLowerCase(),
             target_name: targetName,
             date: dateStr,
-            decree_number: decreeNumber
+            decree_number: nextDecreeNumber
           };
 
           const updatedTruths = [newTruth, ...currentTruths];
