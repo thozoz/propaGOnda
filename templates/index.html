@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>propa[GO]nda - The Ministry of Go Supremacy</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐹</text></svg>">
+</head>
+<body>
+
+  <!-- TOP TICKER -->
+  <div class="top-ticker">
+    <div>⚠️ MINISTRY DIRECTIVE: ALL OTHER RUNTIMES ARE SUB-OPTIMAL</div>
+    <div><span class="badge-pulse">LIVE</span> STATUS: COMPILED</div>
+  </div>
+
+  <div class="container">
+    <!-- BRANDING -->
+    <header>
+      <div class="logo-wrap">
+        <div class="logo">propa<span class="go-highlight">GO</span>nda</div>
+      </div>
+      <div class="tagline">"Spreading the compiled truth since 2009."</div>
+      <div class="bureau-seal">OFFICIAL DISPATCH FROM THE STATE BUREAU OF GOROUTINES</div>
+    </header>
+
+    <!-- HERO: TRUTH OF THE DAY -->
+    <section class="hero-card">
+      <div class="hero-meta">
+        <span class="tag-badge">🔥 {{ .Hero.TargetName }}</span>
+        <span>DATE: {{ .Hero.Date }}</span>
+        <span>DECREE #{{ .Hero.DecreeNumber }}</span>
+      </div>
+
+      <h1 class="hero-title">{{ .Hero.Title }}</h1>
+
+      <blockquote class="hero-quote">
+        “{{ .Hero.Quote }}”
+      </blockquote>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary"
+           href="https://twitter.com/intent/tweet?text={{ .Hero.TwitterText }}"
+           target="_blank" rel="noopener noreferrer">
+          📢 Broadcast on X
+        </a>
+        <button class="btn btn-dark" onclick="copyTruthText(this)">
+          📋 Copy Decree
+        </button>
+        <button class="btn" onclick="openRepentModal()">
+          🙏 Repent & Convert
+        </button>
+      </div>
+    </section>
+
+    <!-- WIDGETS GRID -->
+    <div class="widgets-grid">
+      <!-- WIDGET 1: ERR CHECK TICKER -->
+      <div class="widget-box">
+        <div class="widget-title">
+          <span><code>if err != nil</code> Live Counter</span>
+          <span>⚡</span>
+        </div>
+        <div class="ticker-value" id="err-ticker">84,920,412</div>
+        <div class="ticker-desc">Estimated global <code>if err != nil</code> checks written today. Explicit error handling builds character.</div>
+      </div>
+
+      <!-- WIDGET 2: TODAY'S TARGET -->
+      <div class="widget-box">
+        <div class="widget-title">
+          <span>Under Active Investigation</span>
+          <span style="color: var(--alert-red);">🎯</span>
+        </div>
+        <div class="ticker-value" style="color: var(--alert-red); text-transform: uppercase;">
+          {{ .Hero.TargetName }}
+        </div>
+        <div class="ticker-desc">Ministry auditors are currently reviewing their syntax crimes and memory usage offenses.</div>
+      </div>
+
+      <!-- WIDGET 3: BIASED BENCHMARK -->
+      <div class="widget-box">
+        <div class="widget-title">
+          <span>Objective Science Matrix</span>
+          <span>📊</span>
+        </div>
+        <table class="biased-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Golang</th>
+              <th>Inferior Legacy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RAM Usage</td>
+              <td class="winner">8 MB</td>
+              <td class="loser">16 GB (Electron)</td>
+            </tr>
+            <tr>
+              <td>Build Time</td>
+              <td class="winner">0.12s</td>
+              <td class="loser">42m (Rust)</td>
+            </tr>
+            <tr>
+              <td>Docker Size</td>
+              <td class="winner">12 MB</td>
+              <td class="loser">4.2 GB (Python)</td>
+            </tr>
+            <tr>
+              <td>Deploy Tool</td>
+              <td class="winner">scp binary</td>
+              <td class="loser">Kubernetes YAMLs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- VICTIM REGISTRY -->
+    <nav class="victim-nav">
+      <h3>🏛️ Victim Registry (Select Investigation)</h3>
+      <div class="pills-wrap">
+        <a href="/" class="pill {{ if eq .ActiveFilter "" }}active{{ end }}">All Decrees</a>
+        <a href="/victims/rust" class="pill {{ if eq .ActiveFilter "rust" }}active{{ end }}">Rust</a>
+        <a href="/victims/python" class="pill {{ if eq .ActiveFilter "python" }}active{{ end }}">Python</a>
+        <a href="/victims/javascript" class="pill {{ if eq .ActiveFilter "javascript" }}active{{ end }}">JavaScript</a>
+        <a href="/victims/java" class="pill {{ if eq .ActiveFilter "java" }}active{{ end }}">Java</a>
+        <a href="/victims/cpp" class="pill {{ if eq .ActiveFilter "cpp" }}active{{ end }}">C++</a>
+        <a href="/victims/php" class="pill {{ if eq .ActiveFilter "php" }}active{{ end }}">PHP</a>
+        <a href="/victims/ruby" class="pill {{ if eq .ActiveFilter "ruby" }}active{{ end }}">Ruby</a>
+      </div>
+    </nav>
+
+    <!-- ARCHIVE LIST -->
+    <section class="archive-section">
+      <h2>Archived Truths ({{ len .Truths }})</h2>
+      <div class="cards-list">
+        {{ range .Truths }}
+        <article class="archive-card">
+          <div class="archive-card-meta">
+            <span>DECREE #{{ .DecreeNumber }} &bull; TARGET: <b>{{ .TargetName }}</b></span>
+            <span>{{ .Date }}</span>
+          </div>
+          <div class="archive-card-quote">“{{ .Quote }}”</div>
+          <div>
+            <button class="btn btn-sm" onclick="copyTruthText(this)">Copy</button>
+            <a class="btn btn-sm btn-primary"
+               href="https://twitter.com/intent/tweet?text={{ .TwitterText }}"
+               target="_blank" rel="noopener noreferrer">
+              Share
+            </a>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p><b>propa[GO]nda</b> &mdash; Built with 100% pure Go standard library (<code>net/http</code>, <code>html/template</code>, <code>embed</code>), zero npm dependencies, and single-digit millisecond latency.</p>
+      <p style="margin-top: 6px; color: #64748B;">Webhook ready for daily automated n8n AI dispatches. Because we practice what we preach.</p>
+    </footer>
+  </div>
+
+  <!-- REPENT MODAL -->
+  <div class="modal-overlay" id="repent-modal">
+    <div class="modal-card">
+      <h3 id="repent-title" style="font-family: var(--mono-font); text-transform: uppercase;">Instant Cleansing</h3>
+      <p style="margin-top: 8px; font-size: 0.9rem;">Copy and paste this divine commandment into your terminal to leave runtime errors behind forever:</p>
+      <div class="code-block" id="repent-code">curl -sSL https://go.dev/dl/</div>
+      <div style="display: flex; justify-content: flex-end; gap: 8px;">
+        <button class="btn btn-sm" onclick="openRepentModal()">Another Snippet</button>
+        <button class="btn btn-sm btn-dark" onclick="closeRepentModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Copied!</div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

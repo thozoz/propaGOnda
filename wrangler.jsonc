@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "propagonda",
+  "pages_build_output_dir": "public",
+  "compatibility_date": "2026-01-01",
+  "kv_namespaces": [
+    {
+      "binding": "PROPAGONDA_KV",
+      "id": "propagonda-truths-kv"
+    }
+  ],
+  "vars": {
+    "PROPAGONDA_API_KEY": "propagonda-secret-2026"
+  }
+}

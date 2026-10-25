@@ -1,0 +1,202 @@
+[
+  {
+    "id": "1",
+    "slug": "single-static-binary",
+    "title": "Decree #101: The Container Illusion",
+    "quote": "Go compiles into a single 10MB static binary that runs anywhere. Python requires 4GB of Docker images, 3 virtualenvs, and prayer.",
+    "target": "python",
+    "target_name": "Python",
+    "date": "2026-10-25",
+    "decree_number": 101
+  },
+  {
+    "id": "2",
+    "slug": "borrow-checker-ptsd",
+    "title": "Decree #102: Lifetime of Regret",
+    "quote": "Rustaceans spend 40 minutes fighting borrow checker lifetimes to print 'Hello World' safely. Gophers shipped to production 39 minutes ago.",
+    "target": "rust",
+    "target_name": "Rust",
+    "date": "2026-10-24",
+    "decree_number": 102
+  },
+  {
+    "id": "3",
+    "slug": "node-modules-black-hole",
+    "title": "Decree #103: Mass of the Universe",
+    "quote": "The heaviest objects in the known universe: 1. Black holes. 2. Neutron stars. 3. A blank React project's node_modules folder.",
+    "target": "javascript",
+    "target_name": "JavaScript",
+    "date": "2026-10-23",
+    "decree_number": 103
+  },
+  {
+    "id": "4",
+    "slug": "abstract-singleton-bean",
+    "title": "Decree #104: Bureaucracy of Enterprise",
+    "quote": "Java enterprise architectures require an AbstractSingletonProxyFactoryBean to instantiate a boolean. Go requires `var b bool`. Choose freedom.",
+    "target": "java",
+    "target_name": "Java",
+    "date": "2026-10-22",
+    "decree_number": 104
+  },
+  {
+    "id": "5",
+    "slug": "if-err-nil-is-zen",
+    "title": "Decree #105: The Divine Repetition",
+    "quote": "Unenlightened developers complain about 'if err != nil'. Enlightened gophers know it is a meditative mantra reminding us that all human creation is flawed.",
+    "target": "all",
+    "target_name": "Heresy",
+    "date": "2026-10-21",
+    "decree_number": 105
+  },
+  {
+    "id": "6",
+    "slug": "the-gil-bottleneck",
+    "title": "Decree #106: The Global Lock of Shame",
+    "quote": "Python developers celebrate removing the GIL in 2026. Go has been running millions of goroutines across all CPU cores without breaking a sweat since 2009.",
+    "target": "python",
+    "target_name": "Python",
+    "date": "2026-10-20",
+    "decree_number": 106
+  },
+  {
+    "id": "7",
+    "slug": "is-odd-dependency",
+    "title": "Decree #107: The Supply Chain Tragedy",
+    "quote": "A modern JavaScript web app imports 847 packages just to check if an integer is odd. Go uses `n%2 != 0`. The Ministry mourns npm users.",
+    "target": "javascript",
+    "target_name": "JavaScript",
+    "date": "2026-10-19",
+    "decree_number": 107
+  },
+  {
+    "id": "8",
+    "slug": "cpp-template-metaprogramming",
+    "title": "Decree #108: Scroll of Arcane Errors",
+    "quote": "A C++ compilation error spans 4,000 lines of template spew because you passed `int` instead of `size_t`. Go compiler tells you in 12 characters and finishes compiling in 80ms.",
+    "target": "cpp",
+    "target_name": "C++",
+    "date": "2026-10-18",
+    "decree_number": 108
+  },
+  {
+    "id": "9",
+    "slug": "garbage-collection-humility",
+    "title": "Decree #109: Manual Memory Delusion",
+    "quote": "You believe you are smart enough to manage manual memory without leaks or use-after-free vulnerabilities. The Ministry and your segfaults disagree.",
+    "target": "cpp",
+    "target_name": "C++",
+    "date": "2026-10-17",
+    "decree_number": 109
+  },
+  {
+    "id": "10",
+    "slug": "object-object",
+    "title": "Decree #110: Type Coercion Catastrophe",
+    "quote": "In JavaScript: `[] + [] = \"\"`, `[] + {} = [object Object]`, and `{} + [] = 0`. In Go: the compiler slaps your keyboard and refuses to run nonsense.",
+    "target": "javascript",
+    "target_name": "JavaScript",
+    "date": "2026-10-16",
+    "decree_number": 110
+  },
+  {
+    "id": "11",
+    "slug": "gradle-memory-hunger",
+    "title": "Decree #111: The JVM Tribute",
+    "quote": "Starting a Gradle daemon requires sacrifice of 8GB of RAM and heating your room to 40°C. `go build` runs on a refrigerator display clock.",
+    "target": "java",
+    "target_name": "Java",
+    "date": "2026-10-15",
+    "decree_number": 111
+  },
+  {
+    "id": "12",
+    "slug": "microframework-insanity",
+    "title": "Decree #112: The Stdlib Supremacy",
+    "quote": "Other languages require third-party frameworks, ORMs, and 45 plugins to listen on port 8080. Go does it in 5 lines of standard library. Zero external dependencies.",
+    "target": "all",
+    "target_name": "General",
+    "date": "2026-10-14",
+    "decree_number": 112
+  },
+  {
+    "id": "13",
+    "slug": "async-await-colored-functions",
+    "title": "Decree #113: The Function Color Prison",
+    "quote": "What color is your function? Is it red? Is it blue? Is it Promise<Promise<void>>? Go laughs: just `go doThing()` and move on with your life.",
+    "target": "javascript",
+    "target_name": "JavaScript",
+    "date": "2026-10-13",
+    "decree_number": 113
+  },
+  {
+    "id": "14",
+    "slug": "rust-compile-time-coffee",
+    "title": "Decree #114: The Infinite Barista",
+    "quote": "Rust compile times are a government conspiracy sponsored by artisan coffee shops to keep developers away from their keyboards.",
+    "target": "rust",
+    "target_name": "Rust",
+    "date": "2026-10-12",
+    "decree_number": 114
+  },
+  {
+    "id": "15",
+    "slug": "php-array-identity-crisis",
+    "title": "Decree #115: What Is An Array?",
+    "quote": "PHP arrays are simultaneously lists, hash maps, queues, stacks, and existential crises. Go slices are a pointer, length, and capacity. Order restored.",
+    "target": "php",
+    "target_name": "PHP",
+    "date": "2026-10-11",
+    "decree_number": 115
+  },
+  {
+    "id": "16",
+    "slug": "ruby-monkey-patching",
+    "title": "Decree #116: The Anarchy of Monkey Patching",
+    "quote": "In Ruby, any gem can redefine `Integer.+` at runtime to subtract instead. Go does not allow you to even have an unused import. Strictness is love.",
+    "target": "ruby",
+    "target_name": "Ruby",
+    "date": "2026-10-10",
+    "decree_number": 116
+  },
+  {
+    "id": "17",
+    "slug": "electron-crime",
+    "title": "Decree #117: Crime Against Silicon",
+    "quote": "Packaging an entire Chromium browser to display a desktop calculator is a crime against silicon. Go CLI utilities consume 4MB and run at lightspeed.",
+    "target": "javascript",
+    "target_name": "JavaScript",
+    "date": "2026-10-09",
+    "decree_number": 117
+  },
+  {
+    "id": "18",
+    "slug": "package-lock-merge-conflicts",
+    "title": "Decree #118: Merge Conflict Purgatory",
+    "quote": "There is no human sorrow greater than resolving a 14,000-line package-lock.json git conflict. Go has `go.mod` and `go.sum`. Peace reigns.",
+    "target": "javascript",
+    "target_name": "JavaScript",
+    "date": "2026-10-08",
+    "decree_number": 118
+  },
+  {
+    "id": "19",
+    "slug": "type-hints-are-suggestions",
+    "title": "Decree #119: The Suggestion Box",
+    "quote": "Python type hints are merely gentle suggestions that the runtime cheerfully ignores while crashing on `AttributeError: NoneType has no attribute 'get'` in production.",
+    "target": "python",
+    "target_name": "Python",
+    "date": "2026-10-07",
+    "decree_number": 119
+  },
+  {
+    "id": "20",
+    "slug": "gopher-supremacy-immutable",
+    "title": "Decree #120: Final Revelation",
+    "quote": "The Ministry declares: Go code written in 2012 still compiles and runs without modification today. Your favorite framework was rewritten 4 times this morning.",
+    "target": "all",
+    "target_name": "All",
+    "date": "2026-10-06",
+    "decree_number": 120
+  }
+]
