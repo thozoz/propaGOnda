@@ -49,11 +49,11 @@ export default {
         }
 
         if (request.method === "POST") {
-          const expectedKey = env.PROPAGONDA_API_KEY || "propagonda-secret-2026";
+          const expectedKey = env.PROPAGONDA_API_KEY;
           const apiKey = request.headers.get("X-API-Key") ||
                          (request.headers.get("Authorization") || "").replace(/^Bearer\s+/, "");
 
-          if (apiKey !== expectedKey) {
+          if (!expectedKey || apiKey !== expectedKey) {
             return new Response(JSON.stringify({ error: "Unauthorized: Invalid API key" }), {
               status: 401,
               headers: { "Content-Type": "application/json" }

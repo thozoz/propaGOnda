@@ -51,7 +51,7 @@ npx wrangler pages dev public --kv PROPAGONDA_KV
    - **URL**: `https://<your-pages-app>.pages.dev/api/webhook/truth`
    - **Headers**:
      - `Content-Type`: `application/json`
-     - `X-API-Key`: `<your-secret-key>` (default: `propagonda-secret-2026`)
+     - `X-API-Key`: `<your-secret-key>` (default: `<your-secret-key>`)
    - **Body**: Output from AI node.
 
 ---

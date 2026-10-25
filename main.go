@@ -224,7 +224,7 @@ func main() {
 		// Security: verify API key from header
 		expectedKey := os.Getenv("PROPAGONDA_API_KEY")
 		if expectedKey == "" {
-			expectedKey = "propagonda-secret-2026" // default dev secret
+			expectedKey = "dev-secret-change-me"
 		}
 
 		apiKey := r.Header.Get("X-API-Key")

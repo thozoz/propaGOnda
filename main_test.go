@@ -40,7 +40,7 @@ func TestEndpoints(t *testing.T) {
 
 	hookHandler := func(rw http.ResponseWriter, r *http.Request) {
 		apiKey := r.Header.Get("X-API-Key")
-		if apiKey != "propagonda-secret-2026" {
+		if apiKey != "test-secret-key" {
 			http.Error(rw, "unauthorized", http.StatusUnauthorized)
 			return
 		}
@@ -54,7 +54,7 @@ func TestEndpoints(t *testing.T) {
 
 	// 3. Test Webhook Authorized
 	authReq := httptest.NewRequest(http.MethodPost, "/api/webhook/truth", bytes.NewBufferString(`{"title":"New Truth","quote":"Go is eternal.","target":"python"}`))
-	authReq.Header.Set("X-API-Key", "propagonda-secret-2026")
+	authReq.Header.Set("X-API-Key", "test-secret-key")
 	authW := httptest.NewRecorder()
 
 	hookHandler(authW, authReq)

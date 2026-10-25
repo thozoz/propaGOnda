@@ -11,8 +11,5 @@
       "binding": "PROPAGONDA_KV",
       "id": "c147fc51acd544e28e705af3dd7f7f4a"
     }
-  ],
-  "vars": {
-    "PROPAGONDA_API_KEY": "propagonda-secret-2026"
-  }
+  ]
 }
