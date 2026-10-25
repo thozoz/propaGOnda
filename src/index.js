@@ -8,7 +8,10 @@ export default {
       if (url.pathname === "/api/truths" && request.method === "GET") {
         if (env.PROPAGONDA_KV) {
           try {
-            const stored = await env.PROPAGONDA_KV.get("truths", { type: "json" });
+            let stored = await env.PROPAGONDA_KV.get("truths", { type: "json" });
+            if (typeof stored === "string") {
+              try { stored = JSON.parse(stored); } catch (e) {}
+            }
             if (Array.isArray(stored) && stored.length > 0) {
               return new Response(JSON.stringify(stored), {
                 headers: {
@@ -81,7 +84,10 @@ export default {
           let currentTruths = [];
           if (env.PROPAGONDA_KV) {
             try {
-              const stored = await env.PROPAGONDA_KV.get("truths", { type: "json" });
+              let stored = await env.PROPAGONDA_KV.get("truths", { type: "json" });
+              if (typeof stored === "string") {
+                try { stored = JSON.parse(stored); } catch (e) {}
+              }
               if (Array.isArray(stored)) {
                 currentTruths = stored;
               }
