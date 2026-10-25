@@ -138,12 +138,9 @@ async function loadTruths() {
     const res = await fetch("/api/truths");
     if (res.ok) {
       allTruths = await res.json();
-    } else {
-      throw new Error("API not ready");
     }
   } catch (e) {
-    const fallbackRes = await fetch("/data/truths.json");
-    allTruths = await fallbackRes.json();
+    console.error("Failed to load truths:", e);
   }
   renderTruths();
 }

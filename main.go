@@ -15,7 +15,7 @@ import (
 	"time"
 )
 
-//go:embed static/* templates/* data/truths.json
+//go:embed public/* templates/*
 var embeddedFiles embed.FS
 
 type Truth struct {

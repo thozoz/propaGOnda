@@ -1,6 +1,4 @@
 // Cloudflare Worker entry point with Static Assets & KV
-import defaultTruths from "../public/data/truths.json";
-
 export default {
   async fetch(request, env) {
     try {
@@ -25,8 +23,8 @@ export default {
           }
         }
 
-        // Fast fallback to bundled truths
-        return new Response(JSON.stringify(defaultTruths), {
+        // Fallback if KV empty
+        return new Response(JSON.stringify([]), {
           headers: {
             "Content-Type": "application/json",
             "Cache-Control": "public, max-age=60",
@@ -93,7 +91,7 @@ export default {
           }
 
           if (currentTruths.length === 0) {
-            currentTruths = defaultTruths;
+            currentTruths = [];
           }
 
           const now = new Date();
