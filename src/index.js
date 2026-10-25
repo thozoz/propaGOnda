@@ -63,6 +63,9 @@ export default {
           let payload;
           try {
             payload = await request.json();
+            if (typeof payload === "string") {
+              payload = JSON.parse(payload);
+            }
           } catch (err) {
             return new Response(JSON.stringify({ error: "Invalid JSON body" }), {
               status: 400,
