@@ -95,6 +95,14 @@ Authenticated endpoint to promulgate a new daily decree.
 
 ## 🤖 n8n Automated Pipeline Setup
 
+![n8n Automated Pipeline](n8n-workflow.png)
+
+### Workflow Architecture:
+- **Scheduler:** Daily cron trigger.
+- **Deduplication:** Fetches live history from `/api/truths` to avoid repeat topics.
+- **AI Agent:** Powered by DeepSeek / Nemotron with **Tavily Web Search** tool for live developer news.
+- **Dispatcher:** Sends verified JSON decree to `/api/webhook/truth`.
+
 ### Workflow Steps:
 1. **Schedule Trigger:** Set to run daily (e.g. at 08:00 AM).
 2. **HTTP Request (GET):**
