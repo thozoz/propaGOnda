@@ -43,6 +43,8 @@ function copyTruthText(btn) {
 function renderTruths() {
   if (!allTruths || allTruths.length === 0) return;
 
+  renderPills();
+
   const filtered = currentFilter
     ? allTruths.filter(t => t.target.toLowerCase() === currentFilter.toLowerCase())
     : allTruths;
@@ -62,12 +64,17 @@ function renderTruths() {
   document.getElementById("hero-twitter-btn").href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(twitterRaw)}`;
 
   // Update Target Badge Widget
-  document.getElementById("widget-target-name").innerText = hero.target_name || hero.target;
+  document.getElementById("widget-target-name").innerText = currentFilter ? currentFilter.toUpperCase() : (hero.target_name || hero.target).toUpperCase();
 
   // Update Archive count & list
   document.getElementById("archive-count").innerText = `(${archives.length})`;
   const container = document.getElementById("archive-cards-list");
   container.innerHTML = "";
+
+  if (archives.length === 0) {
+    container.innerHTML = `<p style="font-family: var(--mono-font); padding: 16px; color: #64748B;">No further archived decrees for this target.</p>`;
+    return;
+  }
 
   archives.forEach(t => {
     const card = document.createElement("article");
@@ -88,11 +95,39 @@ function renderTruths() {
   });
 }
 
-// 5. Filter switching
-function setFilter(target, el) {
+// 5. Dynamic Pills Generation from actual targets
+function renderPills() {
+  const wrap = document.getElementById("victim-pills-wrap");
+  if (!wrap) return;
+
+  // Extract unique targets & counts
+  const targetCounts = {};
+  const targetNames = {};
+
+  allTruths.forEach(t => {
+    const key = (t.target || "all").toLowerCase();
+    targetCounts[key] = (targetCounts[key] || 0) + 1;
+    if (!targetNames[key]) {
+      targetNames[key] = t.target_name || (key.charAt(0).toUpperCase() + key.slice(1));
+    }
+  });
+
+  let html = `<button class="pill ${currentFilter === '' ? 'active' : ''}" onclick="setFilter('')">All Decrees (${allTruths.length})</button>`;
+
+  Object.keys(targetCounts).forEach(slug => {
+    if (slug === "all") return;
+    const name = targetNames[slug];
+    const count = targetCounts[slug];
+    const isActive = currentFilter.toLowerCase() === slug ? "active" : "";
+    html += `<button class="pill ${isActive}" onclick="setFilter('${slug}')">${name} (${count})</button>`;
+  });
+
+  wrap.innerHTML = html;
+}
+
+// 6. Filter switching
+function setFilter(target) {
   currentFilter = target;
-  document.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
-  if (el) el.classList.add("active");
   renderTruths();
   return false;
 }

@@ -115,15 +115,8 @@
     <!-- VICTIM REGISTRY -->
     <nav class="victim-nav">
       <h3>🏛️ Victim Registry (Select Investigation)</h3>
-      <div class="pills-wrap">
-        <button class="pill active" onclick="setFilter('', this)">All Decrees</button>
-        <button class="pill" onclick="setFilter('rust', this)">Rust</button>
-        <button class="pill" onclick="setFilter('python', this)">Python</button>
-        <button class="pill" onclick="setFilter('javascript', this)">JavaScript</button>
-        <button class="pill" onclick="setFilter('java', this)">Java</button>
-        <button class="pill" onclick="setFilter('cpp', this)">C++</button>
-        <button class="pill" onclick="setFilter('php', this)">PHP</button>
-        <button class="pill" onclick="setFilter('ruby', this)">Ruby</button>
+      <div class="pills-wrap" id="victim-pills-wrap">
+        <!-- Generated dynamically from active targets -->
       </div>
     </nav>
 
