@@ -149,7 +149,7 @@ async function loadTruths() {
 const REPENT_SNIPPETS = [
   {
     title: "Instant Cleansing (Install Go)",
-    cmd: "curl -sSL https://go.dev/dl/ | grep -o 'go[0-9.]*.linux-amd64.tar.gz' | head -1"
+    cmd: "curl -sSL https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash"
   },
   {
     title: "10-Second High-Performance HTTP Server",
@@ -195,6 +195,15 @@ function openRepentModal() {
   title.innerText = snip.title;
   code.innerText = snip.cmd;
   modal.classList.add("active");
+}
+
+function copyRepentCode() {
+  const code = document.getElementById("repent-code").innerText.trim();
+  navigator.clipboard.writeText(code).then(() => {
+    showToast("✓ Command copied to clipboard!");
+  }).catch(() => {
+    showToast("Error copying to clipboard");
+  });
 }
 
 function closeRepentModal() {

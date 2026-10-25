@@ -140,8 +140,9 @@
     <div class="modal-card">
       <h3 id="repent-title" style="font-family: var(--mono-font); text-transform: uppercase;">Instant Cleansing</h3>
       <p style="margin-top: 8px; font-size: 0.9rem;">Copy and paste this divine commandment into your terminal to leave runtime errors behind forever:</p>
-      <div class="code-block" id="repent-code">curl -sSL https://go.dev/dl/</div>
+      <div class="code-block" id="repent-code">curl -sSL https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash</div>
       <div style="display: flex; justify-content: flex-end; gap: 8px;">
+        <button class="btn btn-sm btn-primary" onclick="copyRepentCode()">Copy</button>
         <button class="btn btn-sm" onclick="openRepentModal()">Another Snippet</button>
         <button class="btn btn-sm btn-dark" onclick="closeRepentModal()">Close</button>
       </div>
