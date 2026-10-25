@@ -5,6 +5,8 @@
 
 **Live Site:** [https://go.thozoz.vip](https://go.thozoz.vip)
 
+![propaGOnda Preview](preview.png)
+
 `propa[GO]nda` is a satirical, viral web application dedicated to daily Golang supremacy propaganda. The site humorously claims Go is objectively superior to every other programming language and runtime, delivering deadpan decrees, biased benchmarks, a live `if err != nil` ticker, and daily automated propaganda dispatches.
 
 ---
