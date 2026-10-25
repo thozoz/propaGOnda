@@ -99,12 +99,12 @@ export default {
           const target = payload.target || "all";
           const targetName = payload.target_name || (target.charAt(0).toUpperCase() + target.slice(1));
 
-          // Strict sequential decree numbering
-          let nextDecreeNumber = 101;
+          // Strict sequential decree numbering starting from 1
+          let nextDecreeNumber = 1;
           if (currentTruths.length > 0 && currentTruths[0].decree_number) {
             nextDecreeNumber = currentTruths[0].decree_number + 1;
           } else {
-            nextDecreeNumber = currentTruths.length + 101;
+            nextDecreeNumber = currentTruths.length + 1;
           }
 
           // Clean title to always match exact decree number
