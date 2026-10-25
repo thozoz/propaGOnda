@@ -52,21 +52,27 @@ func (s *Store) load() error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
-	// Try reading from disk first (in case updated by webhook)
-	var raw []byte
 	diskBytes, err := os.ReadFile("data/truths.json")
 	if err == nil {
-		raw = diskBytes
-	} else {
-		// Fallback to embedded
-		embeddedBytes, embErr := embeddedFiles.ReadFile("data/truths.json")
-		if embErr != nil {
-			return embErr
-		}
-		raw = embeddedBytes
+		return json.Unmarshal(diskBytes, &s.truths)
 	}
 
-	return json.Unmarshal(raw, &s.truths)
+	// Default seed if no file exists
+	if len(s.truths) == 0 {
+		s.truths = []Truth{
+			{
+				ID:           "1",
+				Slug:         "decree-1",
+				Title:        "Decree #1: The Compiled Truth",
+				Quote:        "Go compiles into a single static binary that runs anywhere. Explicit error handling builds character.",
+				Target:       "all",
+				TargetName:   "Heresy",
+				Date:         time.Now().Format("2006-01-02"),
+				DecreeNumber: 1,
+			},
+		}
+	}
+	return nil
 }
 
 func (s *Store) save() error {
