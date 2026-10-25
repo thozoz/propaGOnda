@@ -1,8 +1,11 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "propagonda",
-  "pages_build_output_dir": "public",
+  "main": "src/index.js",
   "compatibility_date": "2026-01-01",
+  "assets": {
+    "directory": "./public"
+  },
   "kv_namespaces": [
     {
       "binding": "PROPAGONDA_KV",
