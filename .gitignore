@@ -11,3 +11,4 @@ node_modules/
 .env.*
 .dev.vars
 PROJECT_KICKOFF.md
+.wrangler/
